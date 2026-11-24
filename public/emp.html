@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f8fc">
+    <title>Employee tasks | A.M Auditors &amp; Tax Consultant</title>
+    <link rel="stylesheet" href="./css/emp.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="./index.html">A.M Auditors <span>&amp; Tax Consultant</span></a>
+        <a class="back-link" href="./index.html">Back to home</a>
+    </header>
+
+    <main>
+        <section class="page-heading" aria-labelledby="page-title">
+            <p class="eyebrow">Employee workspace</p>
+            <h1 id="page-title">My tasks</h1>
+            <p>Create a task, describe the work, and select any files related to it.</p>
+        </section>
+
+        <div class="workspace">
+            <section class="panel form-panel" aria-labelledby="create-task-title">
+                <h2 id="create-task-title">Create a task</h2>
+                <p class="form-intro">Add the task details and optionally choose supporting files.</p>
+                <form id="task-form" enctype="multipart/form-data">
+                    <div class="field">
+                        <label for="employee-name">Your name</label>
+                        <input
+                            id="employee-name"
+                            name="employeeName"
+                            type="text"
+                            maxlength="100"
+                            autocomplete="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+                    <div class="field">
+                        <label for="task-name">Task name</label>
+                        <input
+                            id="task-name"
+                            name="taskName"
+                            type="text"
+                            maxlength="100"
+                            placeholder="e.g. Prepare monthly report"
+                            required
+                        >
+                    </div>
+                    <div class="field">
+                        <label for="task-description">Description of work</label>
+                        <textarea
+                            id="task-description"
+                            name="description"
+                            maxlength="2000"
+                            placeholder="Describe the work to be completed..."
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="field">
+                        <label for="task-files">Add files <span>(optional)</span></label>
+                        <input
+                            class="file-picker"
+                            id="task-files"
+                            name="files"
+                            type="file"
+                            accept=".csv,.doc,.docx,.jpeg,.jpg,.pdf,.png,.ppt,.pptx,.txt,.webp,.xls,.xlsx"
+                            multiple
+                        >
+                        <p class="file-note">Upload up to 5 files per task. Each file must be 5 MB or smaller.</p>
+                        <ul class="file-list" id="selected-files" aria-live="polite"></ul>
+                    </div>
+                    <button class="primary-button" type="submit">Create task</button>
+                    <p class="status-message" id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="panel tasks-panel" aria-labelledby="tasks-title">
+                <div class="tasks-heading">
+                    <h2 id="tasks-title">Your task list</h2>
+                    <span class="task-count" id="task-count" aria-label="0 tasks">0</span>
+                </div>
+                <div class="empty-state" id="empty-state">
+                    <p><strong>No tasks yet</strong></p>
+                    <p>Create a task to see it here.</p>
+                </div>
+                <div class="task-list" id="task-list"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="./js/emp.js" defer></script>
+</body>
+</html>

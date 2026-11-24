@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f8fc">
+    <title>Admin dashboard | A.M Auditors &amp; Tax Consultant</title>
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="./index.html">A.M Auditors <span>&amp; Tax Consultant</span></a>
+        <nav aria-label="Main navigation">
+            <a href="./emp.html">Employee tasks</a>
+            <a href="./index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-heading" aria-labelledby="page-title">
+            <p class="eyebrow">Admin workspace</p>
+            <h1 id="page-title">Team tasks</h1>
+            <p>Review submitted work, employee details, attached files, and task status.</p>
+        </section>
+
+        <section class="summary" aria-label="Task summary">
+            <article class="summary-card">
+                <span class="summary-label">All tasks</span>
+                <strong id="total-count">0</strong>
+            </article>
+            <article class="summary-card">
+                <span class="summary-label">In progress</span>
+                <strong id="active-count">0</strong>
+            </article>
+            <article class="summary-card">
+                <span class="summary-label">Completed</span>
+                <strong id="completed-count">0</strong>
+            </article>
+        </section>
+
+        <section class="tasks-panel" aria-labelledby="tasks-heading">
+            <div class="toolbar">
+                <div>
+                    <h2 id="tasks-heading">Submitted work</h2>
+                    <p id="result-count" class="result-count">Loading tasks...</p>
+                </div>
+                <button class="refresh-button" id="refresh-button" type="button">Refresh</button>
+            </div>
+
+            <div class="filters">
+                <div class="search-field">
+                    <label class="visually-hidden" for="task-search">Search tasks</label>
+                    <input id="task-search" type="search" placeholder="Search employee or task">
+                </div>
+                <div>
+                    <label class="visually-hidden" for="status-filter">Filter by status</label>
+                    <select id="status-filter">
+                        <option value="all">All statuses</option>
+                        <option value="active">In progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+
+            <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+            <div id="empty-state" class="empty-state" hidden>
+                <strong>No tasks found</strong>
+                <span>Try changing your search or status filter.</span>
+            </div>
+            <div id="task-list" class="task-list"></div>
+        </section>
+    </main>
+
+    <script src="./js/admin.js" defer></script>
+</body>
+</html>
